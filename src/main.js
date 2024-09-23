@@ -175,3 +175,13 @@ document.getElementById('add-text-btn').addEventListener('click', function () {
     const newText = document.getElementById('text-input').value;
     updateCanvasText(newText); 
 });
+
+function createImage(saveAsFileName) {
+    const canvas = document.getElementById('canvas');
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
+    link.download = 'canvas-image.png';
+    link.click();
+}
+
+document.getElementById('download-btn').addEventListener('click', downloadCanvas);
