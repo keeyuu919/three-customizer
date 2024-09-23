@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,14 +20,15 @@
 
     <div class="container">
         <!-- 3D Canvas Container -->
-        <div id="canvas"></div>
+        <div id="canvas">
+        </div>
         <div id="options">
             <div class="tabs">
                 <button class="tab-button active" onclick="showSection('color-options')">Colors</button>
                 <button class="tab-button" onclick="showSection('text-options')">Text</button>
                 <button class="tab-button" onclick="showSection('logo-options')">Logos</button>
             </div>
-
+            <button id="download-btn">Download Canvas</button>
             <div class="options-panel">
                 <!-- Color Options -->
                 <div id="color-options" class="options-section active">
