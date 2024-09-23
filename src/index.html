@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZR Customizer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <h3>EZR DESIGNER</h3>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">My Cart</a>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 3D Canvas Container -->
+        <div id="canvas"></div>
+        <div id="options">
+            <div class="tabs">
+                <button class="tab-button active" onclick="showSection('color-options')">Colors</button>
+                <button class="tab-button" onclick="showSection('text-options')">Text</button>
+                <button class="tab-button" onclick="showSection('logo-options')">Logos</button>
+            </div>
+
+            <div class="options-panel">
+                <!-- Color Options -->
+                <div id="color-options" class="options-section active">
+                    <h3>Color Options</h3>
+                    <div id="pickr-container"></div>
+                </div>
+
+                <!-- Text Options -->
+                <div id="text-options" class="options-section">
+                    <h3>Text Options</h3>
+                    <input type="text" placeholder="Enter your text" class="text-input" id="text-input">
+                    <button id="add-text-btn">Add Text</button>
+
+                    <label for="font-size">Font Size:</label>
+                    <input type="number" id="font-size" min="10" max="100" value="20">
+                    
+                    <label for="font-color">Font Color:</label>
+                    <input type="color" id="font-color" value="#000000">
+
+                    <label for="text-align">Text Alignment:</label>
+                    <select id="text-align">
+                        <option value="left">Left</option>
+                        <option value="center">Center</option>
+                        <option value="right">Right</option>
+                    </select>
+                    <canvas id="texture-canvas" width="512" height="512" style="border:1px solid black; margin-top: 10px;"></canvas>
+                </div>
+
+                <!-- Logo Options -->
+                <div id="logo-options" class="options-section">
+                    <h3>Logo Options</h3>
+
+                    <!-- Upload Custom Logo -->
+                    <label for="upload-logo">Upload Logo:</label>
+                    <input type="file" id="upload-logo" accept="image/*">
+                    <button id="upload-logo-btn">Add Logo</button>
+
+                    <label for="logo-size">Logo Size:</label>
+                    <input type="range" id="logo-size" min="0.1" max="2" step="0.1" value="1">
+
+                    <label for="logo-rotate">Logo Rotation:</label>
+                    <input type="range" id="logo-rotate" min="0" max="360" step="1" value="0">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.options-section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
